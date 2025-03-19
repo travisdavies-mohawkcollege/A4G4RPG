@@ -22,6 +22,9 @@ namespace MohawkGame2D
         bool playerBlock;
         bool enemyBlock;
         int currentEnemy;
+        // 0 is Fire, 1 is Grass, 2 is Water
+        int attackElement;
+        int enemyDefenseElement;
 
 
         /// <summary>
@@ -111,17 +114,17 @@ namespace MohawkGame2D
                     //After player presses enter, the game checks selected move and applies damage to enemy. 
                     if (playerChoice == 1)
                     {
-                        playerDamage = 10;
+                        PlayerDamageCalculator();
                         enemyHP -= playerDamage;
                     }
                     if (playerChoice == 2)
                     {
-                        playerDamage = 10;
+                        PlayerDamageCalculator();
                         enemyHP -= playerDamage;
                     }
                     if (playerChoice == 3)
                     {
-                        playerDamage = 10;
+                        PlayerDamageCalculator();
                         enemyHP -= playerDamage;
                     }
                     if (playerChoice == 4)
@@ -149,18 +152,18 @@ namespace MohawkGame2D
 
                 if (enemyChoice == 1)
                 {
-                    enemyDamage = 10;
-                    enemyHP -= enemyDamage;
+                    EnemyDamageCalculator();
+                    playerHP -= enemyDamage;
                 }
                 if (enemyChoice == 2)
                 {
-                    enemyDamage = 10;
-                    enemyHP -= enemyDamage;
+                    EnemyDamageCalculator();
+                    playerHP -= enemyDamage;
                 }
                 if (enemyChoice == 3)
                 {
-                    enemyDamage = 10;
-                    enemyHP -= enemyDamage;
+                    EnemyDamageCalculator();    
+                    playerHP -= enemyDamage;
                 }
                 if (enemyChoice == 4)
                 {
@@ -175,6 +178,79 @@ namespace MohawkGame2D
             }
         }
 
+        public void PlayerDamageCalculator()
+        {
+            //Calculate damage dealt to player and enemy based on moves chosen.
+            // 0 is Fire, 1 is Grass, 2 is Water
+            if (attackElement == 0)
+            {
+                if (enemyDefenseElement == 0)
+                {
+                    playerDamage = 10;
+                }
+                if (enemyDefenseElement == 1)
+                {
+                    playerDamage = 15;
+                    //print "It's super effective!"
+                }
+                if (enemyDefenseElement == 2)
+                {
+                    playerDamage = 5;
+                    //print "It's not very effective..."
+                }
+            }
+            if (attackElement == 1)
+            {
+                if (enemyDefenseElement == 0)
+                {
+                    playerDamage = 5;
+                    //print "It's not very effective..."
+                }
+                if (enemyDefenseElement == 1)
+                {
+                    playerDamage = 10;
+                }
+                if (enemyDefenseElement == 2)
+                {
+                    playerDamage = 15;
+                    //print "It's super effective!"
+                }
+            }
+            if (attackElement == 2)
+            {
+                if (enemyDefenseElement == 0)
+                {
+                    playerDamage = 15;
+                    //print "It's super effective!"
+                }
+                if (enemyDefenseElement == 1)
+                {
+                    playerDamage = 5;
+                    //print "It's not very effective..."
+                }
+                if (enemyDefenseElement == 2)
+                {
+                    playerDamage = 10;
+                }
+            }
+            if (enemyBlock == true)
+            {
+                playerDamage = playerDamage / 2;
+                //print "Enemy blocked your attack!"
+                enemyBlock = false;
+            }
+        }
+
+        public void EnemyDamageCalculator()
+        {
+            //if giving a player an element, add weaknesses here.
+            if (playerBlock == true)
+            {
+                enemyDamage = enemyDamage / 2;
+                //print "You blocked enemy's attack!"
+                playerBlock = false;
+            }
+        }
     }
 
 
