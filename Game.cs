@@ -20,7 +20,7 @@ namespace MohawkGame2D
         int playerChoice;
         public int enemyChoice;
         bool playerBlock;
-        bool enemyBlock;
+        public bool enemyBlock;
         int currentEnemy;
         // 0 is Fire, 1 is Grass, 2 is Water
         int attackElement;
@@ -156,24 +156,28 @@ namespace MohawkGame2D
                 enemyAttackFunction.enemyAttack();
                 if (enemyChoice == 0)
                 {
+                    //testing text can be swapped with moves
                     Console.WriteLine("enemy choose", enemyChoice);
                     EnemyDamageCalculator();
                     playerHP -= enemyDamage;
                 }
                 if (enemyChoice == 1)
                 {
+                    //testing text can be swapped with moves
                     Console.WriteLine("enemy choose", enemyChoice);
                     EnemyDamageCalculator();
                     playerHP -= enemyDamage;
                 }
                 if (enemyChoice == 2)
                 {
+                    //testing text can be swapped with moves
                     Console.WriteLine("enemy choose", enemyChoice);
                     EnemyDamageCalculator();    
                     playerHP -= enemyDamage;
                 }
                 if (enemyChoice == 3)
                 {
+                    //testing text can be swapped with moves
                     Console.WriteLine("enemy choose",enemyChoice);
                     enemyBlock = true;
                 }

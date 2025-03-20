@@ -12,7 +12,12 @@ namespace MohawkGame2D
         public void enemyAttack()
         {
             game = new Game();
-            game.enemyChoice = Random.Integer(3);
+            if (game.enemyBlock)
+            { game.enemyChoice = Random.Integer(2);}
+            else
+            {
+                game.enemyChoice = Random.Integer(3);
+            }
         }
     }
 }
