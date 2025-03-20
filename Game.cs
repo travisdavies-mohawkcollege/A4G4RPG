@@ -18,13 +18,15 @@ namespace MohawkGame2D
         int enemyDamage;
         int gameState;
         int playerChoice;
-        int enemyChoice;
+        public int enemyChoice;
         bool playerBlock;
         bool enemyBlock;
         int currentEnemy;
         // 0 is Fire, 1 is Grass, 2 is Water
         int attackElement;
         int enemyDefenseElement;
+        //calling classes
+        enemyfunction enemyAttackFunction;
 
 
         /// <summary>
@@ -34,7 +36,9 @@ namespace MohawkGame2D
         {
             Window.SetSize(800, 600);
             Window.SetTitle("Group 4 RPG Battle");
-
+            // setting names of classes
+            enemyAttackFunction = new enemyfunction();
+            //Stats
             enemyHP = 150;
             playerHP = 100;
             gameState = 0;
@@ -149,24 +153,28 @@ namespace MohawkGame2D
             {
                 //Enemy Turn
                 //Call enemy attack function, which will check which move the enemy chose and apply the appropriate damage.
-
+                enemyAttackFunction.enemyAttack();
+                if (enemyChoice == 0)
+                {
+                    Console.WriteLine("enemy choose", enemyChoice);
+                    EnemyDamageCalculator();
+                    playerHP -= enemyDamage;
+                }
                 if (enemyChoice == 1)
                 {
+                    Console.WriteLine("enemy choose", enemyChoice);
                     EnemyDamageCalculator();
                     playerHP -= enemyDamage;
                 }
                 if (enemyChoice == 2)
                 {
-                    EnemyDamageCalculator();
+                    Console.WriteLine("enemy choose", enemyChoice);
+                    EnemyDamageCalculator();    
                     playerHP -= enemyDamage;
                 }
                 if (enemyChoice == 3)
                 {
-                    EnemyDamageCalculator();    
-                    playerHP -= enemyDamage;
-                }
-                if (enemyChoice == 4)
-                {
+                    Console.WriteLine("enemy choose",enemyChoice);
                     enemyBlock = true;
                 }
                 gameState = 1;
