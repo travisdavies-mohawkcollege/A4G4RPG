@@ -27,7 +27,7 @@ namespace MohawkGame2D
         int enemyDefenseElement;
         //calling classes
         enemyfunction enemyAttackFunction;
-        render render;
+        render render ;
 
 
         /// <summary>
@@ -90,10 +90,10 @@ namespace MohawkGame2D
         public void Draw()
         {
             //draw background
-            Window.ClearBackground(Color.Cyan);
+            Window.ClearBackground(Color.Gray);
             render.volcanoRender();
             render.palmtreeRender();
-            
+            render.AttackoptionsRender();
             //draw menus
             //draw player and enemy
             if (currentEnemy == 1)
