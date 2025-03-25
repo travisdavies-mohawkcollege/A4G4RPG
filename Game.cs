@@ -18,9 +18,7 @@ namespace MohawkGame2D
         int enemyDamage;
         int gameState;
         int playerChoice;
-        public int enemyChoice;
         bool playerBlock;
-        public bool enemyBlock;
         int currentEnemy;
         // 0 is Fire, 1 is Grass, 2 is Water
         int attackElement;
@@ -160,32 +158,29 @@ namespace MohawkGame2D
                 //Enemy Turn
                 //Call enemy attack function, which will check which move the enemy chose and apply the appropriate damage.
                 enemyAttackFunction.enemyAttack();
-                if (enemyChoice == 0)
+                if (enemyAttackFunction.enemyChoice == 0)
                 {
                     //testing text can be swapped with moves
-                    Console.WriteLine("enemy choose", enemyChoice);
                     EnemyDamageCalculator();
                     playerHP -= enemyDamage;
                 }
-                if (enemyChoice == 1)
+                if (enemyAttackFunction.enemyChoice == 1)
                 {
                     //testing text can be swapped with moves
-                    Console.WriteLine("enemy choose", enemyChoice);
                     EnemyDamageCalculator();
                     playerHP -= enemyDamage;
                 }
-                if (enemyChoice == 2)
+                if (enemyAttackFunction.enemyChoice == 2)
                 {
                     //testing text can be swapped with moves
-                    Console.WriteLine("enemy choose", enemyChoice);
                     EnemyDamageCalculator();    
                     playerHP -= enemyDamage;
                 }
-                if (enemyChoice == 3)
+                if (enemyAttackFunction.enemyChoice == 3)
                 {
                     //testing text can be swapped with moves
-                    Console.WriteLine("enemy choose",enemyChoice);
-                    enemyBlock = true;
+                    playerDamage = playerDamage / 2;
+                    /*enemyAttackFunction.enemyBlock = true;*/
                 }
                 gameState = 1;
             }
@@ -251,12 +246,11 @@ namespace MohawkGame2D
                     playerDamage = 10;
                 }
             }
-            if (enemyBlock == true)
-            {
-                playerDamage = playerDamage / 2;
-                //print "Enemy blocked your attack!"
-                enemyBlock = false;
-            }
+            //if (enemyAttackFunction.enemyBlock == true)
+            //{
+            //    playerDamage = playerDamage / 2;
+            //    //print "Enemy blocked your attack!"
+            //}
         }
 
         public void EnemyDamageCalculator()
