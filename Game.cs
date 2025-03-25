@@ -93,6 +93,7 @@ namespace MohawkGame2D
             Window.ClearBackground(Color.Cyan);
             render.volcanoRender();
             render.palmtreeRender();
+            render.backgroundRender();
             
             //draw menus
             //draw player and enemy

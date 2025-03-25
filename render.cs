@@ -10,6 +10,7 @@ namespace MohawkGame2D
     {
         Texture2D volcano = Graphics.LoadTexture("../../../assets/volcano.png");
         Texture2D palmtree = Graphics.LoadTexture("../../../assets/palmtree.png");
+        Texture2D buttonoptions = Graphics.LoadTexture("../../../assets/buttonoptions.png");
         public void volcanoRender()
         {
             Graphics.Draw(volcano, 150, 0);
@@ -19,6 +20,10 @@ namespace MohawkGame2D
         {
             Graphics.Draw(palmtree, 15, 310);
             Graphics.Draw(palmtree, 685, 310);
+        }
+        public void backgroundRender()
+        {
+            Graphics.Draw(buttonoptions, 0 , 180);
         }
         
     }
