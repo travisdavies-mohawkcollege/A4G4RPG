@@ -53,8 +53,9 @@ namespace MohawkGame2D
         {
 
             //add all draw calls to the draw function
-            Draw();
-
+            Render();
+            PlayerHealthBar();
+            EnemyHealthBar();
             if (gameState == 0)
             {
                 currentEnemy++;
@@ -85,7 +86,7 @@ namespace MohawkGame2D
         }
 
 
-        public void Draw()
+        public void Render()
         {
             //draw background
             Window.ClearBackground(Color.Cyan);
@@ -261,6 +262,28 @@ namespace MohawkGame2D
                 enemyDamage = enemyDamage / 2;
                 //print "You blocked enemy's attack!"
                 playerBlock = false;
+            }
+        }
+        public void PlayerHealthBar()
+        {
+            Draw.FillColor = Color.Gray;
+            Draw.Rectangle(20, 20, 100, 20);
+            Draw.FillColor = Color.Red;
+            Draw.Rectangle(20, 20, playerHP, 20);
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.F))
+            {
+                playerHP = 50;
+            }
+        }
+        public void EnemyHealthBar()
+        {
+            Draw.FillColor = Color.Gray;
+            Draw.Rectangle(620, 20, 150, 20);
+            Draw.FillColor = Color.Red;
+            Draw.Rectangle(600, 20, enemyHP, 20);
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.G))
+            {
+                enemyHP = 50;
             }
         }
     }

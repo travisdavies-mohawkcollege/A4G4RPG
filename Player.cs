@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 //{
 //    class Player
 //    {
-//Console.WriteLine("Choose an action:");
+//        Console.WriteLine("Choose an action:");
 //Console.WriteLine("1. Attack");
 //Console.WriteLine("2. Switch Pokemon");
 //Console.WriteLine("3. Use Item");
