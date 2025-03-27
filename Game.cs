@@ -1,6 +1,7 @@
 ﻿// Include the namespaces (code libraries) you need below.
 using System;
 using System.Numerics;
+using Group4_a4_RPGBattle;
 
 // The namespace your code is in.
 namespace MohawkGame2D
@@ -24,8 +25,9 @@ namespace MohawkGame2D
         int attackElement;
         int enemyDefenseElement;
         //calling classes
-        enemyfunction enemyAttackFunction;
+        EnemyFunction enemyAttackFunction;
         render render;
+        Player player;
 
 
         /// <summary>
@@ -36,8 +38,9 @@ namespace MohawkGame2D
             Window.SetSize(800, 600);
             Window.SetTitle("Group 4 RPG Battle");
             // setting names of classes
-            enemyAttackFunction = new enemyfunction();
+            enemyAttackFunction = new EnemyFunction();
             render= new render();
+            player = new Player();
             //Stats
             enemyHP = 150;
             playerHP = 100;
@@ -51,11 +54,10 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-
+            player.PlayerControl();
             //add all draw calls to the draw function
             Render();
-            PlayerHealthBar();
-            EnemyHealthBar();
+            
             if (gameState == 0)
             {
                 currentEnemy++;
@@ -90,9 +92,12 @@ namespace MohawkGame2D
         {
             //draw background
             Window.ClearBackground(Color.Cyan);
+            player.ChoiceRender();
             render.volcanoRender();
             render.palmtreeRender();
-            
+            PlayerHealthBar();
+            EnemyHealthBar();
+
             //draw menus
             //draw player and enemy
             if (currentEnemy == 1)
@@ -120,25 +125,32 @@ namespace MohawkGame2D
                 if (Input.IsKeyboardKeyPressed(KeyboardInput.Enter))
                 {
                     //Call player attack function.
+                    playerChoice = player.playerChoice;
+                    attackElement = player.attackElement;
+
                     //After player presses enter, the game checks selected move and applies damage to enemy. 
                     if (playerChoice == 1)
                     {
                         PlayerDamageCalculator();
                         enemyHP -= playerDamage;
+                        Console.WriteLine("Player used attack 1");
                     }
                     if (playerChoice == 2)
                     {
                         PlayerDamageCalculator();
                         enemyHP -= playerDamage;
+                        Console.WriteLine("Player used attack 2");
                     }
                     if (playerChoice == 3)
                     {
                         PlayerDamageCalculator();
-                        enemyHP -= playerDamage;
+                        enemyHP -= playerDamage;   
+                        Console.WriteLine("Player used attack 3");
                     }
                     if (playerChoice == 4)
                     {
                         playerBlock = true;
+                        Console.WriteLine("Player chose to block!");
                     }
                     gameState = 2;
 

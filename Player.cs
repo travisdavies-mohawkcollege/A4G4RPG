@@ -3,81 +3,61 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MohawkGame2D;
 
-//namespace Group4_a4_RPGBattle
-//{
-//    class Player
-//    {
-//        Console.WriteLine("Choose an action:");
-//Console.WriteLine("1. Attack");
-//Console.WriteLine("2. Switch Pokemon");
-//Console.WriteLine("3. Use Item");
-//Console.WriteLine("4. Run");
+namespace Group4_a4_RPGBattle
+{
+    internal class Player
+    {
+        public int playerChoice = 0;
+        // 0 is Fire, 1 is Grass, 2 is Water
+        public int attackElement;
+        public void PlayerControl()
+        {
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.One))
+            {
+                playerChoice = 1;
+                attackElement = 0;
+            }
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.Two))
+            {
+                playerChoice = 2;
+                attackElement = 1;
+            }
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.Three))
+            {
+                playerChoice = 3;
+                attackElement = 2;
+            }
+            if (Input.IsKeyboardKeyPressed(KeyboardInput.Four))
+            {
+                playerChoice = 4;
+            }
+        }
 
-//string userInput = Console.ReadLine();
+        public void ChoiceRender()
+        {
+            if (playerChoice == 1)
+            {
+                Draw.FillColor = Color.Yellow;
+                Draw.Quad(0, 400, 400, 400, 400, 500, 0, 500);
+            }
+            if (playerChoice == 2)
+            {
+                Draw.FillColor = Color.Yellow;
+                Draw.Quad(400, 400, 800, 400, 800, 500, 400, 500);
+            }
+            if (playerChoice == 3)
+            {
+                Draw.FillColor = Color.Yellow;
+                Draw.Quad(0, 500, 400, 500, 400, 600, 0, 600);
+            }
+            if (playerChoice == 4)
+            {
+                Draw.FillColor = Color.Yellow;
+                Draw.Quad(400, 500, 800, 500, 800, 600, 400, 600);
+            }
+        }
 
-//if (userInput == "1")
-//{
-//    // Player chose to attack
-//    Console.WriteLine("You chose to attack!");
-//}
-//else if (userInput == "2")
-//{
-//    // Player chose to switch Pokemon
-//    Console.WriteLine("You chose to switch Pokemon!");
-//}
-//else if (userInput == "3")
-//{
-//    // Player chose to use an item
-//    Console.WriteLine("You chose to use an item!");
-//}
-//else if (userInput == "4")
-//{
-//    // Player chose to run
-//    Console.WriteLine("You chose to run!");
-//}
-//else
-//{
-//    // Invalid input
-//    Console.WriteLine("Invalid input.");
-//}
-
-//public class PokemonBattle
-//{
-//    public static void Main(string[] args)
-//    {
-//        Console.WriteLine("Choose an action:");
-//        Console.WriteLine("1. Attack");
-//        Console.WriteLine("2. Switch Pokemon");
-//        Console.WriteLine("3. Use Item");
-//        Console.WriteLine("4. Run");
-
-//        string userInput = Console.ReadLine();
-
-//        switch (userInput)
-//        {
-//            case "1":
-//                Console.WriteLine("You chose to attack!");
-//                // Implement attack logic here
-//                break;
-//            case "2":
-//                Console.WriteLine("You chose to switch Pokemon!");
-//                // Implement switch logic here
-//                break;
-//            case "3":
-//                Console.WriteLine("You chose to use an item!");
-//                // Implement item logic here
-//                break;
-//            case "4":
-//                Console.WriteLine("You chose to run!");
-//                // Implement run logic here
-//                break;
-//            default:
-//                Console.WriteLine("Invalid input.");
-//                break;
-//        }
-//    }
-//}
-//    }
-
-//}
+    }
+}

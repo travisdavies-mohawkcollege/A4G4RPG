@@ -5,7 +5,7 @@ using System.Numerics;
 // The namespace your code is in.
 namespace MohawkGame2D
 {
-    class enemyfunction
+    class EnemyFunction
     {
         public int enemyChoice;
         public bool enemyBlock = false;
