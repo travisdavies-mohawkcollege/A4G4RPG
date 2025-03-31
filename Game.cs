@@ -25,8 +25,9 @@ namespace MohawkGame2D
         int attackElement;
         int enemyDefenseElement;
         //calling classes
-        enemyfunction enemyAttackFunction;
+        EnemyFunction enemyAttackFunction;
         render render ;
+        Player player;
 
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace MohawkGame2D
             Window.SetTitle("Group 4 RPG Battle");
             // setting names of classes
             enemyAttackFunction = new EnemyFunction();
-            render= new render();
+            render = new render();
             player = new Player();
             //Stats
             enemyHP = 150;
@@ -91,10 +92,10 @@ namespace MohawkGame2D
         {
             //draw background
             Window.ClearBackground(Color.Gray);
+            player.ChoiceRender();
             render.volcanoRender();
             render.palmtreeRender();
             render.AttackoptionsRender();
-            player.ChoiceRender();
             PlayerHealthBar();
             EnemyHealthBar();
 
