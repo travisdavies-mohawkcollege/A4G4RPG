@@ -290,7 +290,7 @@ namespace MohawkGame2D
         public void EnemyHealthBar()
         {
             Draw.FillColor = Color.Gray;
-            Draw.Rectangle(620, 20, 150, 20);
+            Draw.Rectangle(600, 20, 150, 20);
             Draw.FillColor = Color.Red;
             Draw.Rectangle(600, 20, enemyHP, 20);
             if (Input.IsKeyboardKeyPressed(KeyboardInput.G))
