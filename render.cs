@@ -13,13 +13,13 @@ namespace MohawkGame2D
         Texture2D Attackoptions = Graphics.LoadTexture("../../../assets/Attackoptions.png");
         public void volcanoRender()
         {
-            Graphics.Draw(volcano, 150, 0);
+            Graphics.Draw(volcano, 150, -20);
 
         }
         public void palmtreeRender()
         {
-            Graphics.Draw(palmtree, 15, 310);
-            Graphics.Draw(palmtree, 685, 310);
+            Graphics.Draw(palmtree, 15, 300);
+            Graphics.Draw(palmtree, 685, 300);
             
         }
         public void AttackoptionsRender()
