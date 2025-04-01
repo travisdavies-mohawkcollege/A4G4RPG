@@ -100,17 +100,20 @@ namespace MohawkGame2D
 
             //draw menus
             //draw player and enemy
+            Draw.FillColor = Color.Yellow;
+            Draw.Circle(100, 200, 50);
             if (currentEnemy == 1)
             {
-                //draw enemy 1
+                Draw.Triangle(680, 200, 740, 200, 710, 140);
             }
             if (currentEnemy == 2)
             {
-                //draw enemy 2
+                Draw.Rectangle(600, 150, 150, 75);
             }
             if (currentEnemy == 3)
             {
-                //draw enemy 3
+                
+                Draw.Square(650, 150, 100);
             }
             if(gameState == 4)
             { 
