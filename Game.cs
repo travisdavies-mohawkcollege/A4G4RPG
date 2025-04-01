@@ -81,6 +81,7 @@ namespace MohawkGame2D
             {
                 //Player wins, add victory text here if wanted, then go to next enemy.
                 gameState = 0;
+
             }
             if (gameState == 4)
             {
@@ -113,10 +114,14 @@ namespace MohawkGame2D
             }
             if(gameState == 4)
             { 
+                Text.Size = 50;
+                Text.Color = Color.Red;
                 Text.Draw("You Lose!", 400, 300);
             }
             if (gameState == 5)
             {
+                Text.Color = Color.Green;
+                Text.Size = 50;
                 Text.Draw("You Win!", 400, 300);
             }
             else
@@ -227,16 +232,16 @@ namespace MohawkGame2D
             {
                 if (enemyDefenseElement == 0)
                 {
-                    playerDamage = 10;
+                    playerDamage = 50;
                 }
                 if (enemyDefenseElement == 1)
                 {
-                    playerDamage = 15;
+                    playerDamage = 75;
                     //print "It's super effective!"
                 }
                 if (enemyDefenseElement == 2)
                 {
-                    playerDamage = 5;
+                    playerDamage = 25;
                     //print "It's not very effective..."
                 }
             }
@@ -244,16 +249,16 @@ namespace MohawkGame2D
             {
                 if (enemyDefenseElement == 0)
                 {
-                    playerDamage = 5;
+                    playerDamage = 25;
                     //print "It's not very effective..."
                 }
                 if (enemyDefenseElement == 1)
                 {
-                    playerDamage = 10;
+                    playerDamage = 50;
                 }
                 if (enemyDefenseElement == 2)
                 {
-                    playerDamage = 15;
+                    playerDamage = 75;
                     //print "It's super effective!"
                 }
             }
@@ -261,17 +266,17 @@ namespace MohawkGame2D
             {
                 if (enemyDefenseElement == 0)
                 {
-                    playerDamage = 15;
+                    playerDamage = 75;
                     //print "It's super effective!"
                 }
                 if (enemyDefenseElement == 1)
                 {
-                    playerDamage = 5;
+                    playerDamage = 25;
                     //print "It's not very effective..."
                 }
                 if (enemyDefenseElement == 2)
                 {
-                    playerDamage = 10;
+                    playerDamage = 50;
                 }
             }
             //if (enemyAttackFunction.enemyBlock == true)
