@@ -16,7 +16,7 @@ namespace MohawkGame2D
         int enemyHP;
         int playerHP;
         int playerDamage;
-        int enemyDamage;
+        int enemyDamage = 25;
         int gameState;
         int playerChoice;
         bool playerBlock;
@@ -61,6 +61,10 @@ namespace MohawkGame2D
             if (gameState == 0)
             {
                 currentEnemy++;
+                if(currentEnemy == 4)
+                {
+                    gameState = 5;
+                }
                 enemyHP = 150;
                 playerHP = 100;
                 gameState = 1;
@@ -82,7 +86,7 @@ namespace MohawkGame2D
             {
                 //Enemy wins, add defeat text here if wanted, then go to first enemy.
                 currentEnemy = 0;
-                gameState = 0;
+                
             }
 
         }
@@ -92,12 +96,6 @@ namespace MohawkGame2D
         {
             //draw background
             Window.ClearBackground(Color.Gray);
-            player.ChoiceRender();
-            render.volcanoRender();
-            render.palmtreeRender();
-            render.AttackoptionsRender();
-            PlayerHealthBar();
-            EnemyHealthBar();
 
             //draw menus
             //draw player and enemy
@@ -113,9 +111,25 @@ namespace MohawkGame2D
             {
                 //draw enemy 3
             }
-            //draw health bars
-            //draw text
-            //draw player and enemy moves
+            if(gameState == 4)
+            { 
+                Text.Draw("You Lose!", 400, 300);
+            }
+            if (gameState == 5)
+            {
+                Text.Draw("You Win!", 400, 300);
+            }
+            else
+            {
+                
+                player.ChoiceRender();
+                render.volcanoRender();
+                render.palmtreeRender();
+                render.AttackoptionsRender();
+                PlayerHealthBar();
+                EnemyHealthBar();
+            }
+
         }
 
         public void PlayerTurn()
@@ -130,7 +144,7 @@ namespace MohawkGame2D
                     attackElement = player.attackElement;
 
                     //After player presses enter, the game checks selected move and applies damage to enemy. 
-                    if (playerChoice == 1)
+                    if (playerChoice == 4)
                     {
                         PlayerDamageCalculator();
                         enemyHP -= playerDamage;
@@ -148,7 +162,7 @@ namespace MohawkGame2D
                         enemyHP -= playerDamage;   
                         Console.WriteLine("Player used attack 3");
                     }
-                    if (playerChoice == 4)
+                    if (playerChoice == 1)
                     {
                         playerBlock = true;
                         Console.WriteLine("Player chose to block!");

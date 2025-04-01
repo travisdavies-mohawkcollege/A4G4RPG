@@ -17,21 +17,22 @@ namespace Group4_a4_RPGBattle
             if (Input.IsKeyboardKeyPressed(KeyboardInput.One))
             {
                 playerChoice = 1;
-                attackElement = 0;
+                
             }
             if (Input.IsKeyboardKeyPressed(KeyboardInput.Two))
             {
                 playerChoice = 2;
-                attackElement = 1;
+                attackElement = 0;
             }
             if (Input.IsKeyboardKeyPressed(KeyboardInput.Three))
             {
                 playerChoice = 3;
-                attackElement = 2;
+                attackElement = 1;
             }
             if (Input.IsKeyboardKeyPressed(KeyboardInput.Four))
             {
                 playerChoice = 4;
+                attackElement = 2;
             }
         }
 
@@ -40,22 +41,22 @@ namespace Group4_a4_RPGBattle
             if (playerChoice == 1)
             {
                 Draw.FillColor = Color.Yellow;
-                Draw.Quad(0, 400, 400, 400, 400, 500, 0, 500);
+                Draw.Quad(80, 400, 365, 400, 365, 495, 80, 495);
             }
             if (playerChoice == 2)
             {
                 Draw.FillColor = Color.Yellow;
-                Draw.Quad(400, 400, 800, 400, 800, 500, 400, 500);
+                Draw.Quad(445, 400, 800, 400, 800, 495, 445, 495);
             }
             if (playerChoice == 3)
             {
                 Draw.FillColor = Color.Yellow;
-                Draw.Quad(0, 500, 400, 500, 400, 600, 0, 600);
+                Draw.Quad(80, 495, 365, 495, 365, 590, 80, 590);
             }
             if (playerChoice == 4)
             {
                 Draw.FillColor = Color.Yellow;
-                Draw.Quad(400, 500, 800, 500, 800, 600, 400, 600);
+                Draw.Quad(445, 495, 800, 495, 800, 600, 445, 600);
             }
         }
 
