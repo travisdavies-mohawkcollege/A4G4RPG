@@ -24,7 +24,7 @@ namespace MohawkGame2D
         }
         public void AttackoptionsRender()
         {
-            Graphics.Draw(Attackoptions, 0, 150);
+            Graphics.Draw(Attackoptions, -25, 160);
         }
            
            
